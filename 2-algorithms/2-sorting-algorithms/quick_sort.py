@@ -8,9 +8,9 @@ def partition(h, t, l):
     p = h
     
     while h <= t:
-        while h < len(l) and l[h] <= p:
+        while h < len(l) and l[h] <= l[p]:
             h += 1
-        while l[t] > p:
+        while l[t] > l[p]:
             t -= 1
             
         if h < t:
