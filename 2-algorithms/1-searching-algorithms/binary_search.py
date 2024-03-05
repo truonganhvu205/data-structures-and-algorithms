@@ -18,4 +18,4 @@ if __name__ == '__main__':
     l = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
     f = 5
     
-    print(binary_search(l, f)) # 2
+    print(binary_search(l, f))
