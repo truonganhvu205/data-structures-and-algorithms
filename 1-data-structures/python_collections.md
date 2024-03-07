@@ -1,4 +1,4 @@
-# Python collections ( Arrays )
+# Python collections (Arrays)
 
 ### There are four collection data types in the Python programming language:
 
