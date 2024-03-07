@@ -1,32 +1,31 @@
 # HOARE PARTITION
 
-def swap(a, b, l):
+def swap(a, b, lst):
     if a != b:
-        l[a], l[b] = l[b], l[a]
+        lst[a], lst[b] = lst[b], lst[a]
 
-def partition(h, t, l):
-    p = h
+def partition(head_index, tail_index, lst):
+    pivot_index = head_index
     
-    while h <= t:
-        while h < len(l) and l[h] <= l[p]:
-            h += 1
-        while l[t] > l[p]:
-            t -= 1
+    while head_index <= tail_index:
+        while head_index < len(lst) and lst[head_index] <= lst[pivot_index]:
+            head_index += 1
+        while lst[tail_index] > lst[pivot_index]:
+            tail_index -= 1
+        if head_index < tail_index:
+            swap(head_index, tail_index, lst)
             
-        if h < t:
-            swap(h, t, l)
-            
-    swap(p, t, l)
-    return t
+    swap(pivot_index, tail_index, lst)
+    return tail_index
 
-def quick_sort(h, t, l):
-    if h < t:
-        p = partition(h, t, l)
-        quick_sort(h, p - 1, l)
-        quick_sort(p + 1, t, l)
-
+def quick_sort(head_index, tail_index, lst):
+    if head_index < tail_index:
+        p = partition(head_index, tail_index, lst)
+        quick_sort(p + 1, tail_index, lst)
+        quick_sort(head_index, p - 1, lst)
+    
 if __name__ == '__main__':
-    l = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
-    quick_sort(0, len(l) - 1, l)
+    lst = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
     
-    print(l)
+    quick_sort(0, len(lst) - 1, lst)
+    print(lst)

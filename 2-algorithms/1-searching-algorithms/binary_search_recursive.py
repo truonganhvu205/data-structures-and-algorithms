@@ -1,23 +1,23 @@
-def binary_search_recursive(l, f, h, t):
-    if h > t:
+def binary_search_recursive(lst, head_index, tail_index, find):
+    if head_index > tail_index:
         return -1
+        
+    mid_index = (head_index + tail_index) // 2
     
-    m = (h + t) // 2
-    
-    if m < 0 or m > len(l):
+    if mid_index < 0 or mid_index > len(lst):
         return -1
-    
-    if l[m] == f:
-        return m
-    elif l[m] < f:
-        h = m + 1
+        
+    if lst[mid_index] == find:
+        return mid_index
+    elif lst[mid_index] < find:
+        head_index = mid_index + 1
     else:
-        t = m - 1
+        tail_index = mid_index - 1
+        
+    return binary_search_recursive(lst, head_index, tail_index, find)
     
-    return binary_search_recursive(l, f, h, t)
-
 if __name__ == '__main__':
-    l = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
-    f = 5
+    lst = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
+    find = 5
     
-    print(binary_search_recursive(l, f, 0, len(l) - 1))
+    print(binary_search_recursive(lst, 0, len(lst) - 1, find))

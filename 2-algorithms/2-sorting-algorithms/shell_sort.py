@@ -1,20 +1,20 @@
-def shell_sort(l):
-    g = len(l) // 2
+def shell_sort(lst):
+    gap = len(lst) // 2
     
-    while g > 0:
-        for i in range(g, len(l)):
-            a = l[i]
+    while gap > 0:
+        for i in range(gap, len(lst)):
+            anchor = lst[i]
             j = i
             
-            while j > 0 and l[j - g] > a:
-                l[j] = l[j - g]
-                j -= g
+            while j > 0 and lst[j - gap] > anchor:
+                lst[j] = lst[j - gap]
+                j -= gap
                 
-            l[j] = a
-        g //= 2
-
-if __name__ == '__main__':
-    l = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
-    shell_sort(l)
+            lst[j] = anchor
+        gap //= 2
     
-    print(l)
+if __name__ == '__main__':
+    lst = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
+    
+    shell_sort(lst)
+    print(lst)

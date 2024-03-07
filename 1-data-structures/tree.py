@@ -1,48 +1,48 @@
 class Tree:
-    def __init__(self, data) -> None:
-        self.data = data
-        self.parent = None
-        self.children = []
+    def __init__(self, d) -> None:
+        self.d = d
+        self.p = None
+        self.c = []
         
-    def add_child(self, child):
-        child.parent = self
-        self.children.append(child)
+    def add_child(self, ch):
+        ch.p = self
+        self.c.append(ch)
         
     def get_level(self):
         lvl = 0
-        p = self.parent
+        pr = self.p
         
-        while p:
+        while pr:
             lvl += 1
-            p = p.parent
+            pr = pr.p
             
         return lvl
     
     def print_tree(self):
         sp = ' ' * self.get_level() * 4
-        pf = sp + '|__ ' if self.parent else ''
+        pf = sp + '|__' if self.p else ''
         
-        print(pf + self.data)
+        print(pf + self.d)
         
-        if self.children:
-            for child in self.children:
-                child.print_tree()
+        if self.c:
+            for ch in self.c:
+                ch.print_tree()
                 
 def build_tree():
-    root = Tree('Electronics')
+    r = Tree('Electronics')
     
-    cellphone = Tree('Cellphones')
-    cellphone.add_child(Tree('Samsung'))
-    cellphone.add_child(Tree('iPhone'))
+    cp = Tree('Cellphones')
+    cp.add_child(Tree('Samsung'))
+    cp.add_child(Tree('iPhone'))
     
-    laptop = Tree('Laptops')
-    laptop.add_child(Tree('Dell'))
-    laptop.add_child(Tree('Macbook'))
+    lt = Tree('Laptops')
+    lt.add_child(Tree('Dell'))
+    lt.add_child(Tree('Macbook'))
     
-    root.add_child(cellphone)
-    root.add_child(laptop)
+    r.add_child(cp)
+    r.add_child(lt)
     
-    root.print_tree()
+    r.print_tree()
     
 if __name__ == '__main__':
     build_tree()

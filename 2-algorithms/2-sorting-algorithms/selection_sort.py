@@ -1,16 +1,16 @@
-def selection_sort(l):
-    for i in range(len(l) - 1):
-        m = i
+def selection_sort(lst):
+    for i in range(len(lst) - 1):
+        min_index = i
         
-        for j in range(m + 1, len(l)):
-            if l[m] > l[j]:
-                m = j
+        for j in range(min_index + 1, len(lst)):
+            if lst[min_index] > lst[j]:
+                min_index = j
                 
-        if m != i:
-            l[m], l[i] = l[i], l[m]
-
-if __name__ == '__main__':
-    l = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
-    selection_sort(l)
+        if min_index != i:
+            lst[min_index], lst[i] = lst[i], lst[min_index]
     
-    print(l)
+if __name__ == '__main__':
+    lst = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
+    
+    selection_sort(lst)
+    print(lst)

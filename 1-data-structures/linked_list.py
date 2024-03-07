@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self, data=None, next=None) -> None:
-        self.data = data
-        self.next = next
+    def __init__(self, d=None, n=None) -> None:
+        self.d = d
+        self.n = n
 
 class Linked_list:
     def __init__(self) -> None:
@@ -16,8 +16,8 @@ class Linked_list:
         ll = ''
         
         while i:
-            ll += str(i.data) + ' --> ' if i.next else str(i.data)
-            i = i.next
+            ll += str(i.d) + ' --> ' if i.n else str(i.d)
+            i = i.n
             
         print(ll)
         
@@ -27,7 +27,7 @@ class Linked_list:
         
         while i:
             c += 1
-            i = i.next
+            i = i.n
             
         return c
     
@@ -41,10 +41,10 @@ class Linked_list:
         
         i = self.h
         
-        while i.next:
-            i = i.next
+        while i.n:
+            i = i.n
             
-        i.next = Node(d, None)
+        i.n = Node(d, None)
         
     def insert_at(self, id, d):
         if id < 0 or id > self.get_length():
@@ -59,10 +59,10 @@ class Linked_list:
         
         while i:
             if c == id - 1:
-                i.next = Node(d, i.next)
+                i.n = Node(d, i.n)
                 break
             
-            i = i.next
+            i = i.n
             c += 1
             
     def remove_at(self, id):
@@ -70,7 +70,7 @@ class Linked_list:
             raise Exception('Invalid index')
         
         if id == 0:
-            self.h = self.h.next
+            self.h = self.h.n
             return
         
         i = self.h
@@ -78,10 +78,10 @@ class Linked_list:
         
         while i:
             if c == id - 1:
-                i.next = i.next.next
+                i.n = i.n.n
                 break
             
-            i = i.next
+            i = i.n
             c += 1
             
     def insert_values(self, l):
