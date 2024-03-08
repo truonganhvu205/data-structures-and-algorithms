@@ -25,9 +25,10 @@ def merge_sort(lst):
     if len(lst) <= 1:
         return
     
-    mid_lst = len(lst) // 2
-    head_lst = lst[:mid_lst]
-    tail_lst = lst[mid_lst:]
+    mid_index = len(lst) // 2
+    
+    head_lst = lst[:mid_index]
+    tail_lst = lst[mid_index:]
     
     merge_sort(head_lst)
     merge_sort(tail_lst)

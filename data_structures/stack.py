@@ -3,33 +3,34 @@ from collections import deque
 
 class Stack:
     def __init__(self) -> None:
-        self.c = deque()
+        self.container = deque()
         
-    def push(self, v):
-        self.c.append(v)
-        print(self.c)
+    def push(self, value):
+        self.container.append(value)
+        
+        print(self.container)
     
     def peek(self):
-        return self.c[-1]
+        return self.container[-1]
     
     def delete_one(self):
-        return self.c.pop()
+        return self.container.pop()
     
     def size(self):
-        return len(self.c)
+        return len(self.container)
     
     def is_empty(self):
-        return len(self.c) == 0
+        return len(self.container) == 0
     
-s = Stack()
+stack = Stack()
 
-s.push(1)
-s.push(2)
-s.push(3)
-s.push(4)
-s.push(5)
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+stack.push(5)
 
-print(s.peek())
-print(s.delete_one())
-print(s.size())
-print(s.is_empty())
+print(stack.peek())
+print(stack.delete_one())
+print(stack.size())
+print(stack.is_empty())

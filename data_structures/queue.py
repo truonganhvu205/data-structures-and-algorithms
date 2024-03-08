@@ -3,33 +3,34 @@ from collections import deque
 
 class Queue:
     def __init__(self) -> None:
-        self.c = deque()
+        self.container = deque()
         
-    def push(self, v):
-        self.c.appendleft(v)
-        print(self.c)
+    def push(self, value):
+        self.container.appendleft(value)
+        
+        print(self.container)
         
     def peek(self):
-        return self.c[-1]
+        return self.container[-1]
     
     def delete_one(self):
-        return self.c.pop()
+        return self.container.pop()
     
     def size(self):
-        return len(self.c)
+        return len(self.container)
     
     def is_empty(self):
-        return len(self.c) == 0
+        return len(self.container) == 0
     
-q = Queue()
+queue = Queue()
 
-q.push(1)
-q.push(2)
-q.push(3)
-q.push(4)
-q.push(5)
+queue.push(1)
+queue.push(2)
+queue.push(3)
+queue.push(4)
+queue.push(5)
 
-print(q.peek())
-print(q.delete_one())
-print(q.size())
-print(q.is_empty())
+print(queue.peek())
+print(queue.delete_one())
+print(queue.size())
+print(queue.is_empty())
