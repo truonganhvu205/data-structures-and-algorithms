@@ -1,98 +1,99 @@
 class Binary_search_tree:
-    def __init__(self, d):
-        self.d = d
-        self.l = None
-        self.r = None
-
-    def add_child(self, d):
-        if d == self.d:
+    def __init__(self, data) -> None:
+        self.data = data
+        self.left = None
+        self.right = None
+        
+    def add_child(self, data):
+        if data == self.data:
             return
         
-        if d < self.d:
-            if self.l:
-                self.l.add_child(d)
+        if data < self.data:
+            if self.left:
+                self.left.add_child(data)
             else:
-                self.l = Binary_search_tree(d)
+                self.left = Binary_search_tree(data)
         else:
-            if self.r:
-                self.r.add_child(d)
+            if self.right:
+                self.right.add_child(data)
             else:
-                self.r = Binary_search_tree(d)
-            
+                self.right = Binary_search_tree(data)
+                
     def in_order_traversal(self):
-        e = []
-
-        if self.l:
-            e += self.l.in_order_traversal()
-
-        e.append(self.d)
-
-        if self.r:
-            e += self.r.in_order_traversal()
-
-        return e
-    
-    def search(self, v):
-        if self.d == v:
-            return True
+        lst = []
         
-        if v < self.d:
-            if self.l:
-                return self.l.search(v)
+        if self.left:
+            lst += self.left.in_order_traversal()
+            
+        lst.append(self.data)
+        
+        if self.right:
+            lst += self.right.in_order_traversal()
+            
+        return lst
+        
+    def search(self, value):
+        if value == self.data:
+            return True
+            
+        if value < self.data:
+            if self.left:
+                return self.left.search(value)
             else:
                 return False
         else:
-            if self.r:
-                return self.r.search(v)
+            if self.right:
+                return self.right.search(value)
             else:
                 return False
-
+                
     def find_min(self):
-        if self.l is None:
-            return self.d
+        if self.left is None:
+            return self.data
         else:
-            return self.l.find_min()
-
+            return self.left.find_min()
+    
     def find_max(self):
-        if self.r is None:
-            return self.d
+        if self.right is None:
+            return self.data
         else:
-            return self.r.find_max()
+            return self.right.find_max()
     
-    def delete(self, v):
-        if v < self.d:
-            if self.l:
-                self.l = self.l.delete(v)
-        elif v > self.d:
-            if self.r:
-                self.r = self.r.delete(v)
+    def delete(self, value):
+        if value < self.data:
+            if self.left:
+                self.left = self.left.delete(value)
+        elif value > self.data:
+            if self.right:
+                self.right = self.right.delete(value)
         else:
-            if self.l is None and self.r is None:
+            if self.left is None and self.right is None:
                 return None
-            elif self.l is None:
-                return self.r
-            elif self.r is None:
-                return self.l
+            elif self.left is None:
+                return self.right
+            if self.right is None:
+                return self.left
             else:
-                mv = self.r.find_min()
-                self.d = mv
-                self.r = self.r.delete(mv)
-
+                min_value = self.right.find_min()
+                self.data = min_value
+                self.right = self.right.delete(min_value)
+                
         return self
+        
+def build_tree(lst):
+    root = Binary_search_tree(lst[0])
     
-def build_tree(e):
-    r = Binary_search_tree(e[0])
-
-    for i in range(1, len(e)):
-        r.add_child(e[i])
-
-    return r
+    for i in range(1, len(lst)):
+        root.add_child(lst[i])
+        
+    return root
 
 if __name__ == '__main__':
-    l = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
-    print(l.in_order_traversal())
+    binary_search_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
+    
+    print(binary_search_tree.in_order_traversal())
+    print(binary_search_tree.search(20))
 
-    print(l.search(20))
-
-    l.delete(20)
-    print('After deleting 20:', l.in_order_traversal())
+    binary_search_tree.delete(20)
+    
+    print('After deleting 20:', binary_search_tree.in_order_traversal())
