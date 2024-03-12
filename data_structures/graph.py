@@ -9,9 +9,9 @@ class Graph:
             else:
                 self.graph_dict[start] = [end]
                 
-        print('Graph dict:', self.graph_dict)
+        # print('Graph dict:', self.graph_dict)
         
-    def get_full_path(self, start, end, path=[]):
+    def get_paths(self, start, end, path=[]):
         path = path + [start]
         
         if start == end:
@@ -20,16 +20,16 @@ class Graph:
         if start not in self.graph_dict:
             return []
             
-        full_path = []
+        paths = []
         
         for node in self.graph_dict[start]:
             if node not in path:
-                new_path = self.get_full_path(node, end, path)
+                new_path = self.get_paths(node, end, path)
                 
                 for p in new_path:
-                    full_path.append(p)
+                    paths.append(p)
                     
-        return full_path
+        return paths
     
     def get_shortest_path(self, start, end, path=[]):
         path = path + [start]
@@ -67,5 +67,5 @@ if __name__ == '__main__':
     start = "Mumbai"
     end = "New York"
     
-    print(f'All paths between {start} and {end} is:', route_graph.get_full_path(start, end))
+    print(f'All paths between {start} and {end} is:', route_graph.get_paths(start, end))
     print(f'Shortest path between {start} and {end} is:', route_graph.get_shortest_path(start, end))
