@@ -32,6 +32,7 @@ def merge_sort(lst):
     
     merge_sort(head_lst)
     merge_sort(tail_lst)
+    
     merge_two_sort(head_lst, tail_lst, lst)
     
 if __name__ == '__main__':
