@@ -62,10 +62,10 @@ if __name__ == '__main__':
         ("New York", "Toronto"),
     ]
     
-    route_graph = Graph(routes)
+    graph = Graph(routes)
 
     start = "Mumbai"
     end = "New York"
     
-    print(f'All paths between {start} and {end} is:', route_graph.get_paths(start, end))
-    print(f'Shortest path between {start} and {end} is:', route_graph.get_shortest_path(start, end))
+    print(f'All paths between {start} and {end} is:', graph.get_paths(start, end))
+    print(f'Shortest path between {start} and {end} is:', graph.get_shortest_path(start, end))
