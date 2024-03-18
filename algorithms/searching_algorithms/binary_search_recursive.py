@@ -20,4 +20,4 @@ if __name__ == '__main__':
     lst = [1, 3, 5, 7, 9, 0, 2, 4, 6, 8]
     find = 5
     
-    print(binary_search_recursive(lst, 0, len(lst) - 1, find))
+    print(binary_search_recursive(lst, 0, len(lst), find))
