@@ -1,5 +1,5 @@
 # Data structures & Algorithms
-## [Data structures](https://github.com/truonganhvu205/data-structures-and-algorithms/tree/main/data_structures)
+## I. [Data structures](https://github.com/truonganhvu205/data-structures-and-algorithms/tree/main/data_structures)
 1. [Python collections (Arrays)](https://github.com/truonganhvu205/data-structures-and-algorithms/blob/main/data_structures/python_collections.md)
     ### There are four collection data types in the Python programming language:
     * **_List_** is a collection which is ordered & changeable. Allows duplicate members.
@@ -32,7 +32,7 @@
 8. [Recursion](https://github.com/truonganhvu205/data-structures-and-algorithms/blob/main/data_structures/recursion.py)  
     * 
 
-## [Algorithms](https://github.com/truonganhvu205/data-structures-and-algorithms/tree/main/algorithms)
+## II. [Algorithms](https://github.com/truonganhvu205/data-structures-and-algorithms/tree/main/algorithms)
 ### 1. [Searching algorithms](https://github.com/truonganhvu205/data-structures-and-algorithms/tree/main/algorithms/searching_algorithms)
 1. [Linear search](https://github.com/truonganhvu205/data-structures-and-algorithms/blob/main/algorithms/searching_algorithms/linear_search.py)  
     * 
